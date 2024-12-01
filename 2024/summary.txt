@@ -1,3 +1,4 @@
 Day 1 :
-    Level 1 :
-    Level 2 :
+    Level 1 : done (easy)
+    Level 2 : done (easy)
+    Time passed : 30 min
