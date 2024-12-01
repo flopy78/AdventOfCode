@@ -29,7 +29,6 @@ int main() {
     while (getline(file,buffer)) {
         l1.push_back(stoi(buffer.substr(0,buffer.find("   "))));
         l2.push_back(stoi(buffer.substr(buffer.find("   ")+3,buffer.size())));
-
     }
     qsort(l1.data(),l1.size(),sizeof(int),comp);
     qsort(l2.data(),l2.size(),sizeof(int),comp);
