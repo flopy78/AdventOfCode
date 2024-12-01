@@ -1,8 +1,8 @@
-#My Advent Of Code
+# My Advent Of Code
 
 This repository is meant to hold my solutions to the Advent of Code challenge.
 
-#Structure
+# Structure
 
 There is one directory per year. 
 
