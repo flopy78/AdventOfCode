@@ -1,22 +1,20 @@
 import re
 
-get_mul = "^(mul\(\d+,\d+\))"
-get_nums = "^mul\((\d+),(\d+)\)"
+mul_regex = "(mul\(\d+,\d+\)|do\(\)|don't\(\))"
+nums_regex = "mul\((\d+),(\d+)\)"
 
 with open("input.txt") as file:
     memory = file.read()
-    compute = 0
+    result = re.findall(mul_regex,memory)
+    output = 0
     enabled = True
-    for i in range(len(memory)):
-        result = re.search(get_mul,memory[i:])
-        if memory[i:].startswith("do()"):
+    for command in result:
+        if command == "do()":
             enabled = True
-        elif memory[i:].startswith("don't()"):
+        elif command == "don't()":
             enabled = False
-        
-        elif result is not None and enabled:
-            mul = result.groups()[0]
-            nums = re.search(get_nums,mul).groups()
-            compute += int(nums[0])*int(nums[1])
-    print(compute)
-
+        elif enabled:
+            n1,n2 = map(int,re.search(nums_regex,command).groups())
+            output += n1*n2
+    
+    print(output)
