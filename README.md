@@ -4,6 +4,12 @@ This repository is meant to hold my solutions to the Advent of Code challenge.
 
 # Structure
 
-There is one directory per year. 
+* There is one directory per year. 
 
-In each year directory, there's a "summary.txt" files that keeps track of the puzzles I solved and of the time I took to solve them. Then, there is a sub-directory for each day. In each day directory, there are 2 input files (the "example" and the "input", properly said) and sub-directories holding my solutions for each language I used
+* In each year directory, there's a "summary.txt" files that keeps track of the puzzles I solved and the days I actually solved them 
+
+* There is a sub-directory for each day. 
+
+* In each day directory, there are 2 or 3 input files : the "example" (maybe 2 "example1" and "example2" if the given examples are different between level 1 and level 2) and the "input", properly said
+
+* In each day directory, there are sub-directorie(s) hoto solve them.lding my solutions, for each language I used
