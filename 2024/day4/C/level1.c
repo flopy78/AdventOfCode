@@ -4,10 +4,16 @@
 
 int main() {
     FILE * fp;
-    char buffer[100];
-    size_t buffer = 100;
+    char buffer[140];
+    size_t size = 140;
+    char * lines[140];
+    while (getline(&buffer,&size,fp) != -1) {
+        printf("%d",(int)strlen(buffer));
+    }
+    free(buffer);
+    fclose(fp);
 
-    
+
 
     return 0;
 }
