@@ -3,7 +3,6 @@ with open("input.txt") as file:
 
 h = len(grid)
 w = len(grid[0])
-
 n_xmas = 0
 
 DIRS = [(0,1),
