@@ -9,8 +9,22 @@ def is_well_ordered(update,must_be_after):
                 if m in seen_before:
                     well_ordered = False
         seen_before.append(n)
-
     return well_ordered
+
+def get_ordered(update,must_be_after):
+    new_update = update.copy()
+    while not is_well_ordered(new_update,must_be_after):
+        for n in update:
+            if n in must_be_after.keys():
+                for m in must_be_after[n]:
+                    if m in new_update:
+                        mi,ni = new_update.index(m), new_update.index(n) 
+                        if mi < ni:
+                            new_update[mi],new_update[ni] = n,m
+
+                    
+    return new_update
+
 
 with open("input.txt") as file:
     part = 1
@@ -29,6 +43,7 @@ with open("input.txt") as file:
                 must_be_after[X] = [Y]
         elif part == 2:
             update = list(map(int,line.split(",")))
-            if is_well_ordered(update,must_be_after):
+            if not is_well_ordered(update,must_be_after):
+                update = get_ordered(update,must_be_after)
                 sum_mid_pages += update[int(len(update)/2)]
     print(sum_mid_pages)
