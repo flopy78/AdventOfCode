@@ -19,18 +19,17 @@ def is_solvable(result,terms):
             return True
     return False
 
+calib_score = 0
 
 equations = {}
 with open("input.txt") as file:
     for line in file.read().split("\n"):
         result,terms = line.split(": ")
+        result = int(result)
         terms = list(map(int,terms.split(" ")))
-        equations[int(result)] = terms
+        if is_solvable(result,terms):
+            calib_score += result
 
-calib_score = 0
 
 
-for result,terms in equations.items():
-    if is_solvable(result,terms):
-        calib_score += result
 print(calib_score)

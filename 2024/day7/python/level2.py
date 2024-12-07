@@ -23,21 +23,16 @@ def is_solvable(result,terms):
     return False
 
 start = time()
+calib_score = 0
 
-equations = {}
 with open("input.txt") as file:
     for line in file.read().split("\n"):
         result,terms = line.split(": ")
+        result = int(result)
         terms = list(map(int,terms.split(" ")))
-        equations[int(result)] = terms
+        if is_solvable(result,terms):
+            calib_score += result
 
-calib_score = 0
 
-#i = 0
-for result,terms in equations.items():
-    if is_solvable(result,terms):
-        calib_score += result
-    #i += 1
-    #print(f"{i}/{len(equations)}")
 print(calib_score)
 print(time()-start,"s")

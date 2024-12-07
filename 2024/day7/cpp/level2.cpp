@@ -2,8 +2,10 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <chrono>
 
 using namespace std;
+using namespace chrono;
 
 vector<long long> map_stoll(vector<string> values) {
     vector<long long> numeric_values;
@@ -52,6 +54,8 @@ long long compute(vector<long long> terms, string ops,long long result) {
             compute += terms[i+1];
         } else if (ops[i] == '*') {
             compute *= terms[i+1];
+        } else if (ops[i] == 's') {
+            compute = stoll(to_string(compute)+to_string(terms[i+1]));   
         }
         if (compute > result) {
             return compute;
@@ -61,7 +65,7 @@ long long compute(vector<long long> terms, string ops,long long result) {
 }
 
 bool is_solvable(long long result,vector<long long> terms) {
-    for (string ops : product("*+",terms.size()-1)) {
+    for (string ops : product("*+s",terms.size()-1)) {
         if (compute(terms,ops,result) == result) {
             return true;
         }
@@ -70,6 +74,7 @@ bool is_solvable(long long result,vector<long long> terms) {
 }
 
 int main() {
+    auto start = high_resolution_clock::now();
     ifstream file("input.txt");
     string buffer;
     long long score = 0;
@@ -82,5 +87,8 @@ int main() {
         }
     }
     cout << score << endl;
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop-start);
+    cout << duration.count()/(1e6) << "s" << endl;
     return 0;
 }
