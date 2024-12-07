@@ -16,3 +16,6 @@ Day 5:
 Day 6:
     Level 1 : done day 6
     Level 2 : done day 6
+Day 7:
+    Level 1 : done day 7
+    Level 2 : done day 7
