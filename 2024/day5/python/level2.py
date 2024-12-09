@@ -1,3 +1,6 @@
+import time
+
+start = time.time()
 
 def is_well_ordered(update,must_be_after):
     seen_before = []   
@@ -47,3 +50,4 @@ with open("input.txt") as file:
                 update = get_ordered(update,must_be_after)
                 sum_mid_pages += update[int(len(update)/2)]
     print(sum_mid_pages)
+    print(time.time()-start,"s")

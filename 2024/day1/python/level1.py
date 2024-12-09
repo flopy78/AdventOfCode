@@ -1,3 +1,7 @@
+import time
+
+start = time.time()
+
 list1,list2 = [],[]
 
 def quicksort(array):
@@ -32,3 +36,5 @@ for id1,id2 in zip(list1,list2):
     total += abs(id1-id2)
 
 print(total)
+
+print(time.time()-start,"s")

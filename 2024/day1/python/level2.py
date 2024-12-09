@@ -1,3 +1,7 @@
+import time
+
+start = time.time()
+
 list1,list2 = [],[]
 
 count = {}
@@ -20,3 +24,4 @@ for id1 in list1:
 
 print(similarity_score)
 
+print(time.time()-start,"s")

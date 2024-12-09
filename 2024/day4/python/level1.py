@@ -1,3 +1,7 @@
+import time
+
+start = time.time()
+
 with open("input.txt") as file:
     grid = file.read().split("\n")
 
@@ -32,4 +36,4 @@ for y in range(h):
                 directions = directions_left
             n_xmas += len(directions)
 print(n_xmas)
-
+print(time.time()-start,"s")

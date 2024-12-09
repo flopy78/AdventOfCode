@@ -1,3 +1,7 @@
+import time
+
+start = time.time()
+
 def get_antinodes(antennas,frequency,new_antenna,grid):
     new_antinodes = set()
     w,h = len(grid[0]),len(grid)
@@ -26,4 +30,4 @@ with open("input.txt") as file:
                 else:
                     antennas[grid[y][x]] = [(x,y)]
     print(len(antinodes))                    
-
+print(time.time()-start,"s")

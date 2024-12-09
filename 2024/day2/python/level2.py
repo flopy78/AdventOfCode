@@ -1,3 +1,7 @@
+import time
+
+start = time.time()
+
 def is_safe(steps):
     if not all(steps):
         return False
@@ -54,3 +58,5 @@ with open("input.txt") as file:
 
  
 print(n_safe)
+
+print(time.time()-start,"s")

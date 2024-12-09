@@ -1,27 +1,27 @@
 Day 1 :
-    Level 1 : done day 1
-    Level 2 : done day 1
+    Level 1 : done day 1 (Python : <1s)
+    Level 2 : done day 1 (Python : <1s)
 Day 2 : 
-    Level 1 : done day 2
-    Level 2 : done day 2
+    Level 1 : done day 2 (Python : <1s)
+    Level 2 : done day 2 (Python : <1s)
 Day 3 :
-    Level 1 : done day 3
-    Level 2 : done day 3
+    Level 1 : done day 3 (Python : <1s)
+    Level 2 : done day 3 (Python : <1s)
 Day 4:
-    Level 1 : done day 4
-    Level 2 : done day 4
+    Level 1 : done day 4 (Python : <1s)
+    Level 2 : done day 4 (Python : <1s)
 Day 5:
-    Level 1 : done day 5
-    Level 2 : done day 5
+    Level 1 : done day 5 (Python : <1s)
+    Level 2 : done day 5 (Python : <1s)
 Day 6:
-    Level 1 : done day 6
-    Level 2 : done day 6
+    Level 1 : done day 6 (Python : <1s)
+    Level 2 : done day 6 (Python : 100s)
 Day 7:
-    Level 1 : done day 7
-    Level 2 : done day 7
+    Level 1 : done day 7 (Python : <1s)
+    Level 2 : done day 7 (Python : 110s)
 Day 8:
-    Level 1 : done day 8
-    Level 2 : done day 8
+    Level 1 : done day 8 (Python : <1s)
+    Level 2 : done day 8 (Python : <1s)
 Day 9:
-    Level 1 : done day 9
-    Level 2 : done day 9
+    Level 1 : done day 9 (Python : 60s)
+    Level 2 : done day 9 (Python : 60s)

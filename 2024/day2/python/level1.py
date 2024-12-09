@@ -1,3 +1,7 @@
+import time
+
+start = time.time()
+
 with open("input.txt") as file:
     n_safe = 0
 
@@ -19,4 +23,5 @@ with open("input.txt") as file:
         else:
             n_safe += 1
 print(n_safe)
-            
+
+print(time.time()-start,"s")

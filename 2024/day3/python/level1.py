@@ -1,4 +1,7 @@
+import time
 import re
+
+start = time.time()
 
 mul_regex = "mul\(\d+,\d+\)"
 nums_regex = "mul\((\d+),(\d+)\)"
@@ -10,4 +13,5 @@ with open("input.txt") as file:
     for mul in result:
         n1,n2 = map(int,re.search(nums_regex,mul).groups())
         output += n1*n2
-    print(output)
+print(output)
+print(time.time()-start,"s")

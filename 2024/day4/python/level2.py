@@ -1,3 +1,7 @@
+import time
+
+start = time.time()
+
 with open("input.txt") as file:
     grid = file.read().split("\n")
 
@@ -19,3 +23,4 @@ for y in range(h):
      
 print(n_xmas)
 
+print(time.time()-start,"s")

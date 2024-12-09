@@ -1,3 +1,6 @@
+import time
+
+start = time.time()
 
 class Guard:
     def __init__(self,x,y,grid):
@@ -68,9 +71,7 @@ for ox,oy in explored_cases:
         n_looping_pos += 1
     i += 1
     
-    print(i)
 print(n_looping_pos)
 
-
-
+print(time.time()-start,"s")
 

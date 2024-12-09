@@ -6,7 +6,7 @@ This repository is meant to hold my solutions to the Advent of Code challenge.
 
 * There is one directory per year. 
 
-* In each year directory, there's a "summary.txt" files that keeps track of the puzzles I solved and the days I actually solved them 
+* In each year directory, there's a "summary.txt" files that keeps track of the puzzles I solved, the days I actually solved them and the running execution time (roughly) in a reference langage (often Python)
 
 * There is a sub-directory for each day. 
 

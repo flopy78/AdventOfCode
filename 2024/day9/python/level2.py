@@ -45,4 +45,4 @@ for element in disk:
             checksum += element[0]*idx
         idx += 1
 print(checksum)
-print(time.time() - start)
+print(time.time() - start,"s")

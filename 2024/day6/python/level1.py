@@ -1,3 +1,6 @@
+import time
+
+start = time.time()
 
 class Guard:
     def __init__(self,x,y,grid):
@@ -23,7 +26,7 @@ class Guard:
             return False
             
 
-with open("example.txt") as file:
+with open("input.txt") as file:
     grid = file.read().split("\n")
 w,h = len(grid[0]),len(grid)
 
@@ -41,13 +44,4 @@ while guard.move():
     explored_cases.add((guard.x,guard.y))
 
 print(len(explored_cases))
-
-'''
-for y in range(h):
-    for x in range(w):
-        if (x,y) in explored_cases:
-            print("X",end="")
-        else:
-            print(grid[y][x],end="")
-    print()
-'''
+print(time.time()-start,"s")
