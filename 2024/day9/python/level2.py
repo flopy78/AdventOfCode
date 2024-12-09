@@ -1,10 +1,8 @@
-files = {}
+import time
 
-def display(disk):
-    output = ""
-    for symbol,n in disk:
-        output += str(symbol)*n
-    return output
+start = time.time()
+
+files = {}
 
 with open("input.txt") as file:
     memory = file.read()
@@ -50,3 +48,4 @@ for element in disk:
             checksum += element[0]*idx
         idx += 1
 print(checksum)
+print(time.time() - start)
