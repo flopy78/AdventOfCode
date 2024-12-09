@@ -19,22 +19,21 @@ with open("input.txt") as file:
 
 #print(display(disk))
 l = None
+len_disk = len(disk)
 for i in reversed(range(_id)):
     blank_idx = 0
     is_movable = False
     file_idx = disk.index((i,files[i]))
-    while blank_idx < len(disk):
-        if disk[blank_idx][0] == "." and disk[blank_idx][1] >= files[i] and blank_idx < file_idx:
+    while blank_idx < file_idx: 
+        if disk[blank_idx][0] == '.' and disk[blank_idx][1] >= files[i]:
             is_movable = True
             break
         blank_idx += 1
 
     if is_movable:
-        disk[blank_idx] = (".",disk[blank_idx][1]-files[i])
-        file_idx = disk.index((i,files[i]))
-        if blank_idx < file_idx:
-            disk[file_idx] = ('.',files[i])
-            disk.insert(blank_idx,(i,files[i]))
+        disk[blank_idx] = ('.',disk[blank_idx][1]-files[i])
+        disk[file_idx] = ('.',files[i])
+        disk.insert(blank_idx,(i,files[i]))
 
 
 idx = 0
