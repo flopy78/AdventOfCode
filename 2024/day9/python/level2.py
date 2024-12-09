@@ -39,12 +39,6 @@ for i in reversed(range(_id)):
         if blank_idx < file_idx:
             disk[file_idx] = ('.',files[i])
             disk.insert(blank_idx,(i,files[i]))
-    if l is None:
-        l = len(display(disk))
-    if l != len(display(disk)):
-        raise ValueError
-    if i%10==0:print(len(files)-i,"/",len(files),len(display(disk)))
-    #print(display(disk),"#",i)
 
 
 idx = 0
