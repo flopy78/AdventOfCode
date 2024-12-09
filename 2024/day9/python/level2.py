@@ -31,8 +31,6 @@ for i in reversed(range(_id)):
 
     if is_movable:
         disk[blank_idx] = (".",disk[blank_idx][1]-files[i])
-        '''if disk[blank_idx][1] == 0:
-            del disk[blank_idx]'''
         file_idx = disk.index((i,files[i]))
         if blank_idx < file_idx:
             disk[file_idx] = ('.',files[i])
