@@ -1,5 +1,7 @@
 import itertools
-from time import time
+import time
+
+start = time.time()
 
 def compute(terms,ops,result):
     compute = terms[0]
@@ -22,7 +24,6 @@ def is_solvable(result,terms):
             return True
     return False
 
-start = time()
 calib_score = 0
 
 with open("input.txt") as file:
@@ -35,4 +36,4 @@ with open("input.txt") as file:
 
 
 print(calib_score)
-print(time()-start,"s")
+print(time.time()-start,"s")

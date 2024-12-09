@@ -1,4 +1,7 @@
 import itertools
+import time
+
+start = time.time()
 
 def compute(terms,ops):
     compute = terms[0]
@@ -33,3 +36,4 @@ with open("input.txt") as file:
 
 
 print(calib_score)
+print(time.time()-start,"s")
