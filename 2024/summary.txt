@@ -25,3 +25,6 @@ Day 8:
 Day 9:
     Level 1 : done day 9 (Python : 60s)
     Level 2 : done day 9 (Python : 60s)
+Day 10:
+    Level 1 : done day 10 (Python : <1s)
+    Level 2 : done day 10 (Python : <1s)
