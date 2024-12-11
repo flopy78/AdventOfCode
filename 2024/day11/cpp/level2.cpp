@@ -9,6 +9,9 @@
 using namespace std;
 using namespace chrono;
 using memo = map<tuple<int,long long>,long long>;
+memo memoizator {};
+
+
 
 vector<long long> simulate_stone(long long stone) {
     vector<long long> next_step {};
@@ -24,19 +27,20 @@ vector<long long> simulate_stone(long long stone) {
     return next_step;
 }
 
-long long get_n_stones(vector<long long> stones,memo * memo_ptr,int depth) {
+long long get_n_stones(vector<long long> stones,int depth) {
     if (depth == 75) {
         return stones.size();
     }
     long long n_stones = 0;
     long long n_more_stones = 0;
     for (long long stone : stones) {
-        if ((*memo_ptr)[make_pair(stone,depth)] != 0) {
-            n_more_stones = (*memo_ptr)[make_pair(stone,depth)];
+
+        if (memoizator[make_pair(stone,depth)] != 0) {
+            n_more_stones = memoizator[make_pair(stone,depth)];
         } else {
             vector<long long> next_step = simulate_stone(stone);
-            n_more_stones = get_n_stones(next_step,memo_ptr,depth+1);
-            (*memo_ptr)[make_pair(stone,depth)] = n_more_stones;
+            n_more_stones = get_n_stones(next_step,depth+1);
+            memoizator[make_pair(stone,depth)] = n_more_stones;
         }
 
         n_stones += n_more_stones;
@@ -69,9 +73,8 @@ int main() {
     getline(file,line);
     vector<long long> stones {split(line,' ')};
 
-    memo memoizator {};
 
-    long long n_stones = get_n_stones(stones,&memoizator,0);
+    long long n_stones = get_n_stones(stones,0);
 
     cout << n_stones << endl;
     auto stop = high_resolution_clock::now();
