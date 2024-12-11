@@ -2,14 +2,23 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <map>
+#include <unordered_map>
 #include <tuple>
 #include <chrono>
-
 using namespace std;
+
+template<>
+struct std::hash<tuple<int,long long>> {
+    size_t operator()(const tuple<int, long long> &key) const {
+        return 2 * get<0>(key) + 3 * get<1>(key);
+    }
+};
+
+
 using namespace chrono;
-using memo = map<tuple<int,long long>,long long>;
-memo memoizator {};
+using memo = unordered_map<tuple<int,long long>,long long>;
+memo memoizator;
+
 
 
 
