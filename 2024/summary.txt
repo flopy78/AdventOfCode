@@ -31,3 +31,6 @@ Day 10:
 Day 11:
     Level 2 : done day 11 (Python : 1s)
     Level 2 : done day 11 (C++ : 2s)
+Day 12:
+    Level 1 : done day 12 (C++ : unknown)
+    Level 2 : done day 12 (C++ : unknown)
