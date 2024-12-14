@@ -49,6 +49,7 @@ int get_section_price(int x, int y,vector<string> field) {
                 int nx = _x + dx;
                 int ny = _y + dy;
                 if (is_in_range(nx,ny,field) && field[ny][nx] == plant) {
+                    //Use at least c++20 to make this work
                     if (!closed_set.contains(make_pair(nx,ny))) {
                         area ++;
                         new_set.insert(make_pair(nx,ny));
@@ -99,6 +100,7 @@ int main() {
             char plant = field[y][x];
             if (!contains(explored_tiles,make_pair(x,y))) {
                 price += get_section_price(x,y,field);
+            }
 
 
         }
