@@ -59,7 +59,7 @@ vector<string> split(string str,char delim) {
 
 int main() {
     vector<Robot> robots = {};
-    ifstream file("example.txt");
+    ifstream file("input.txt");
     string buffer;
     getline(file,buffer);
     vector<string> dimensions = split(buffer,' ');
@@ -79,8 +79,8 @@ int main() {
         robots.push_back(Robot(robot_x,robot_y,robot_vx,robot_vy,w,h));
     }
     for (int time = 0 ; time < 100 ; time++) {
-        for (int i = 0 ; i < robots.size() ; i++) {
-            robots[i].move();
+        for (Robot &robot : robots) {
+            robot.move();
         }
 
     }
@@ -96,19 +96,19 @@ int main() {
     int half_h = h/2;
 
 
-    for (int i = 0 ; i < robots.size() ; i++) {
+    for (Robot &robot : robots) {
         //cout << robots[i].x << " " << robots[i].y << endl;
-        if (robots[i].x < half_w) {
-            if (robots[i].y < half_h) {
+        if (robot.x < half_w) {
+            if (robot.y < half_h) {
                 count_left_up ++;
-            } else if (robots[i].y > half_h) {
+            } else if (robot.y > half_h) {
 
                 count_left_down ++;
             }
-        } else if (robots[i].x > half_w) {
-            if (robots[i].y < half_h) {
+        } else if (robot.x > half_w) {
+            if (robot.y < half_h) {
                 count_right_up ++;
-            } else if (robots[i].y > half_h) {
+            } else if (robot.y > half_h) {
 
                 count_right_down ++;
             }

@@ -113,17 +113,18 @@ int main() {
             }
             space.push_back(line);
         }
-        for (int i = 0 ; i < robots.size() ; i++) {
-            robots[i].move();
-            space[robots[i].y][robots[i].x] = '#';
+
+        for (Robot &robot : robots) {
+            robot.move();
+            space[robot.y][robot.x] = '#';
         }
         if (find_tree(space,w,h)) {
-            for (vector<char> line : space) {
+            /*for (vector<char> line : space) {
                 for (char tile : line) {
                     cout << tile;
                 }
                 cout << endl;
-            }
+            }*/
             cout << time << endl;
             tree_detected = true;
         }
