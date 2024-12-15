@@ -114,6 +114,7 @@ int main() {
             space.push_back(line);
         }
 
+
         for (Robot &robot : robots) {
             robot.move();
             space[robot.y][robot.x] = '#';

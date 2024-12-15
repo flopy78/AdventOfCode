@@ -40,3 +40,6 @@ Day 13:
 Day 14:
     Level 1 : done day 14 (C++ : <1s)
     Level 2 : done day 14 (C++ : few seconds)
+Day 15:
+    Level 1 : done day 15 (C++ : <1s)
+    Level 2 : dont day 15 (C++ : <1s)
