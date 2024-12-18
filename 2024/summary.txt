@@ -43,3 +43,9 @@ Day 14:
 Day 15:
     Level 1 : done day 15 (C++ : <1s)
     Level 2 : dont day 15 (C++ : <1s)
+Day 16:
+    Level 1 : done day 16 (C++ : unknown)
+    Level 2 : not done yet
+Day 17:
+    Level 1 : done day 17 (C++ : unknown)
+    Level 2 : not done yet
