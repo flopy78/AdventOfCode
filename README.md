@@ -12,4 +12,4 @@ This repository is meant to hold my solutions to the Advent of Code challenge.
 
 * In each day directory, there are 2 or 3 input files : the "example" (maybe 2 "example1" and "example2" if the given examples are different between level 1 and level 2) and the "input", properly said
 
-* In each day directory, there are sub-directorie(s) hoto solve them.lding my solutions, for each language I used
+* In each day directory, there are sub-directorie(s) holding my solutions, one for each language I used
