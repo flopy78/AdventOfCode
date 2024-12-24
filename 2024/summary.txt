@@ -48,4 +48,25 @@ Day 16:
     Level 2 : not done yet
 Day 17:
     Level 1 : done day 17 (C++ : unknown)
+    Level 2 : not done yet 
+Day 18:
+    Level 1 : done day  18 (C++ : unknown)
+    Level 2 : done day 18 (C++ : unknown)
+Day 19 : 
+    Level 1 : done day 19 (C++ : unknown)
+    Level 2 :done day 22 (C++ : unknown)
+Day 20 :
+    Level 1 : done day 20 (C++ : unknown)
+    Level 2 : done day 23 (C++ : unknown)
+Day 21 :
+    Level 1 : done day 24 (C++ : unknown)
+    Level 2 : not done yet
+Day 22 :
+    Level 1 : done day 22 (C++ : unknown)
+    Level 2 : done day 22 (C++ : unknown)
+Day 23 :
+    Level 1 : done day 23 (C++ : unknown)
+    Level 2 : done day 23 (C++ : unknown)
+Day 24 :
+    Level 1 : done day 24 (C++ : unknown)
     Level 2 : not done yet
