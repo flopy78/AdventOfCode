@@ -9,8 +9,6 @@
 using namespace std;
 
 
-
-
 struct Position {
     int x;
     int y;
@@ -70,13 +68,15 @@ bool is_finished(set<ReindeerStep> opened_set,Position end) {
 
 int get_best_score(vector<string> maze, ReindeerStep start, Position end) {
     set<ReindeerStep> opened_set {start};
-    set<ReindeerStep> new_set;
     unordered_set<Position> closed_set {};
 
     int n_loops = 0;
     
     while (!is_finished(opened_set,end)) {
         ReindeerStep explored_step = *opened_set.begin();
+
+        cout << explored_step.position.x << " " << explored_step.position.y << " " <<  explored_step.direction.first << " " << explored_step.direction.second << " " << explored_step.score << endl; 
+
 
         closed_set.insert(explored_step.position);
         opened_set.erase(opened_set.begin());
@@ -100,6 +100,15 @@ int get_best_score(vector<string> maze, ReindeerStep start, Position end) {
         }
 
         n_loops ++;
+        if (n_loops <= 124) {
+            cout << opened_set.size() << endl;
+            cout << "======OPEN==========" << endl;
+            for (ReindeerStep step : opened_set) {
+                cout << step.position.x << " " << step.position.y << " " <<  step.direction.first << " " << step.direction.second << " " << step.score << endl; 
+            }
+            cout  << "=====END============" << endl;
+        }
+
 
     }
 
