@@ -60,7 +60,7 @@ Day 20 :
     Level 2 : done day 23 (C++ : unknown)
 Day 21 :
     Level 1 : done day 24 (C++ : unknown)
-    Level 2 : not done yet
+    Level 2 : done day 27 (OUT OF TIME)
 Day 22 :
     Level 1 : done day 22 (C++ : unknown)
     Level 2 : done day 22 (C++ : unknown)
@@ -70,3 +70,5 @@ Day 23 :
 Day 24 :
     Level 1 : done day 24 (C++ : unknown)
     Level 2 : not done yet
+
+TOTAL STARS BEFORE CHRISTMAS : 46*

@@ -12,6 +12,12 @@
 
 using namespace std;
 
+uint64_t COUNT = 0;
+
+const int CEIL = 25;
+
+unordered_map<string,uint64_t> cache = {}; 
+
 
 const unordered_map<char,pair<int,int>> directions {
     {'>',make_pair(1,0)},
@@ -20,24 +26,12 @@ const unordered_map<char,pair<int,int>> directions {
     {'v',make_pair(0,1)}
 };
 
-bool operator==(const tuple<char,char,int> &A,const tuple<char,char,int> &B) {
-    return (get<0>(A)==get<0>(B) && get<1>(A)==get<1>(B) && get<2>(A)==get<2>(B));
-}
-
-template<>
-struct std::hash<tuple<char,char,int>> {
-    size_t operator()(const tuple<char,char,int> &value) const {
-        return get<0>(value)*7 + get<1>(value)*13 + get<2>(value)*17;
-    }
-};
-
-unordered_map<tuple<char,char,int>,int> cache;
 
 
 struct Step {
     int x;
     int y;
-    int64_t score;
+    uint64_t score;
     char last_move;
     string moves;
 };
@@ -86,7 +80,11 @@ bool is_in_range(const vector<string> &pad, const int &x, const int &y) {
 
 
 
-uint64_t get_n_instructions(const char &start, const char &end, const int &pad_id) {
+uint64_t get_n_instructions(const char &start, const char &end,  const int &pad_id) {
+    string id = to_string(pad_id) + start + end;
+    if (cache.find(id) != cache.end()) {
+        return cache.at(id);
+    }
     vector<string> pad;
 
     if (start == end) {
@@ -107,7 +105,7 @@ uint64_t get_n_instructions(const char &start, const char &end, const int &pad_i
         };
     }  
 
-    int64_t best_score = -1;
+    uint64_t best_score = 0;
     char best_last_move = 'A';
     string best_moves = "";
 
@@ -130,30 +128,26 @@ uint64_t get_n_instructions(const char &start, const char &end, const int &pad_i
                 int ny = step.y + dy;
 
                 if (is_in_range(pad,nx,ny) && pad[ny][nx] != '#' && !closed_set.contains(make_pair(nx,ny))) { //(nx,ny) is in the grid
-                    int new_score = step.score;
-                    if (pad_id < 25) {
-                        if (cache.find(make_tuple(step.last_move,direction.first,pad_id+1)) == cache.end()) {
-                            new_score += get_n_instructions(step.last_move,direction.first,pad_id+1);
-                        } else  {
-                            new_score += cache.at(make_tuple(step.last_move,direction.first,pad_id+1));
-                            cout << "CACHE" << endl;
-                        }
+                    uint64_t new_score = step.score;
+                    if (pad_id < CEIL) {
+                        new_score += get_n_instructions(step.last_move,direction.first,pad_id+1);
                     } else {
                         new_score ++;
                     }
                     Step new_step {nx,ny,new_score,direction.first,step.moves+direction.first};
                     if (nx == end_pos.first && ny == end_pos.second) {
-                        if (pad_id == 25) new_step.score ++;
+                        if (pad_id == CEIL) new_step.score ++;
                         else new_step.score += get_n_instructions(new_step.last_move,'A',pad_id+1);
-                        if (best_score == -1 || new_step.score < best_score) {
+                        if (best_score == 0 || new_step.score < best_score) {
                             if(pad_id == 0) cout << "end " << new_step.x << " " << new_step.y << " " << new_step.score << endl;
                                best_score = new_step.score;
                             best_last_move = new_step.last_move;
                             best_moves = new_step.moves;
                         }
-                    } else {
+                    } else if (best_score == 0 || new_step.score < best_score) {
                         new_set.insert(new_step);
                         closed_set.insert(make_pair(nx,ny));
+                        COUNT ++;
                     }
                 }
             }
@@ -162,7 +156,7 @@ uint64_t get_n_instructions(const char &start, const char &end, const int &pad_i
 
     }
     if (pad_id == 0) cout  << start << end << " " << best_moves << " " << best_score << endl;
-
+    cache.insert({id,best_score});
     return best_score;
 }
 
@@ -174,7 +168,7 @@ int main() {
         return 1;
     }
     string buffer;
-    int solution = 0;
+    uint64_t solution = 0;
     while (getline(file,buffer)) {
         int numeric_part = stoi(buffer.substr(0,buffer.length()-1));
         cout << "numeric part :  " << numeric_part << endl;
@@ -187,5 +181,6 @@ int main() {
         solution += numeric_part * n_instructions;
     }
     cout << solution << endl;
+    cout << COUNT << endl;
     return 0;
 }
