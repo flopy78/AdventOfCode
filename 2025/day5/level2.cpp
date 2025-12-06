@@ -1,20 +1,24 @@
 #include <iostream>
-#include<fstream>
-#include<vector>
-#include<string>
-#include<tuple>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <tuple>
 
 using namespace std;
 
-int size_without_overlap(vector<tuple<uint64_t,uint64_t>> fresh_ranges,int i) {
+bool comp(tuple<uint64_t,uint64_t> a, tuple<uint64_t,uint64_t> b) {
+    return (get<1>(a)-get<0>(a)+1)>(get<1>(b)-get<0>(b)+1);
+}
+
+uint64_t size_without_overlap(vector<tuple<uint64_t,uint64_t>> fresh_ranges,int i) {
     uint64_t lower_ref = get<0>(fresh_ranges[i]);
     uint64_t higher_ref = get<1>(fresh_ranges[i]);
     uint64_t mini = lower_ref;
     uint64_t maxi = higher_ref;
 
-    cout << "-----" << endl;
+    //cout << "-----" << endl;
 
-    cout << mini << " " << maxi << endl; 
+    //cout << mini << " " << maxi << endl; 
     
     for (int j = 0 ; j < i ; j++) {
         uint64_t lower = get<0>(fresh_ranges[j]);
@@ -30,44 +34,49 @@ int size_without_overlap(vector<tuple<uint64_t,uint64_t>> fresh_ranges,int i) {
             maxi = lower -1;
         }
     }
-    cout << mini << " " << maxi << endl; 
+    //cout << mini << " " << maxi << endl; 
 
     if (maxi-mini >= 0) {
+        cout << "result " <<  maxi-mini+1 << endl;
         return maxi-mini +1;
     } else {
+        cout << "result " << 0 << endl;
         return 0;
     }
-
-
-
-
 }
 
 int main() {
-    ifstream input ("tets.txt");
+    ifstream input ("input.txt");
 
-    uint64_t nb_fresh;
+    if (input.is_open()) {
+        uint64_t nb_fresh = 0;
 
-    string buffer;
-    vector<tuple<uint64_t,uint64_t>> fresh_ranges;
+        string buffer;
+        vector<tuple<uint64_t,uint64_t>> fresh_ranges;
 
-    while (getline(input,buffer) && buffer.size() > 0) {
-        int sep_idx = 0;
-        while (buffer[sep_idx] != '-') {
-            sep_idx ++;
+        while (getline(input,buffer) && buffer.size() > 0) {
+            int sep_idx = 0;
+            while (buffer[sep_idx] != '-') {
+                sep_idx ++;
+            }
+            uint64_t lower = stoll(buffer.substr(0,sep_idx));
+            uint64_t higher = stoll(buffer.substr(sep_idx+1,buffer.size()-1-sep_idx));
+            fresh_ranges.push_back(make_tuple(lower,higher));
         }
-        uint64_t lower = stoll(buffer.substr(0,sep_idx));
-        uint64_t higher = stoll(buffer.substr(sep_idx+1,buffer.size()-1-sep_idx));
-        fresh_ranges.push_back(make_tuple(lower,higher));
+    
+
+
+        sort(fresh_ranges.begin(),fresh_ranges.end(),comp);
+
+        for (int i = 0 ; i < fresh_ranges.size() ; i++) {
+            cout << get<0>(fresh_ranges[i]) << " " << get<1>(fresh_ranges[i]) << endl;
+            nb_fresh += size_without_overlap(fresh_ranges,i);
+            cout << nb_fresh << endl;
+        }
+        cout << "Résultat : " << nb_fresh << endl;
+    } else {
+        cout << "file opening problem" << endl;
     }
-
-    for (int i = 0 ; i < fresh_ranges.size() ; i++) {
-        nb_fresh += size_without_overlap(fresh_ranges,i);
-    }
-
-
-
-    cout << "Résultat : " << nb_fresh << endl;
     
     return 0;
 }
