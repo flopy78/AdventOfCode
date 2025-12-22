@@ -8,7 +8,9 @@ let read file_name =
     let input = open_in file_name in
     let line = input_line input in
     let ranges_string = String.split_on_char ',' line in
-    List.map parse_range ranges_string
+    let parsed = List.map parse_range ranges_string in
+    close_in input;
+    parsed
 
 
 
