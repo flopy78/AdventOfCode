@@ -21,7 +21,7 @@ int max_idx(string seq,int begin, int end) {
 
 
 uint64_t get_max_joltage(string line) {
-    cout << line << endl;
+
     char max_joltage_str[12];
     int idx = 0;
     for (int i = 0 ; i < 12 ; i++) {
